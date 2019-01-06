@@ -1,0 +1,30 @@
+This is a Node.js module.  In an environment with Node.js accessible to the local path, it can be executed from the command-line with:
+	node -e "require('./proto').runTests('./txnlog.dat', '2456938384156277127')"
+
+This will parse the txnlog.dat file to provide the following answers:
+
+What is the total amount in dollars of debits?
+	$18203.70
+
+What is the total amount in dollars of credits?
+	$9366.02
+
+How many autopays were started?
+	10
+
+How many autopays were ended?
+	8
+
+What is balance of user ID 2456938384156277127?
+	$0.00
+
+The test method also asserts the values for the first transaction match those provided in the assignment.
+
+The module can be imported to another Node.js application and used by calling the exported 'process' method.
+The filename and a callback function accepting an array of transaction objects and a total record count are the parameters to this method.
+
+Transaction objects contain the following fields:
+	type: One of the enumerated transaction types,
+	timestamp: Transaction's timestamp,
+	userId: String representation of the 64-bit User ID,
+	amount: The amount of the transaction for debit and credit type transactions.
